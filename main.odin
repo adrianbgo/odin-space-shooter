@@ -94,6 +94,20 @@ main :: proc() {
 				{
 				case .ESCAPE:
 					break game_loop
+				case .UP:
+					game.player.dest.y = max(0, game.player.dest.y - 10)
+				case .DOWN:
+					game.player.dest.y = min(
+						WINDOW_HEIGHT - game.player.dest.h,
+						game.player.dest.y + 10,
+					)
+				case .LEFT:
+					game.player.dest.x = max(0, game.player.dest.x - 10)
+				case .RIGHT:
+					game.player.dest.x = min(
+						WINDOW_WIDTH - game.player.dest.w,
+						game.player.dest.x + 10,
+					)
 				}
 			}
 		}
